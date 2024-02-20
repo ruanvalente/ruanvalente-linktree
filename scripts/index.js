@@ -1,6 +1,10 @@
 const themeSwitch = document.getElementById("switch");
 const html = document.documentElement;
 
+const currentDate = (document.querySelector(
+  '[data-js="current-date"]'
+).innerHTML = new Date().getFullYear());
+
 const localTheme = localStorage.getItem("theme");
 
 const switchLocalTheme = (theme) => {
@@ -16,7 +20,6 @@ const switchLocalTheme = (theme) => {
 switchLocalTheme(localTheme);
 
 themeSwitch.addEventListener("change", ({ target: { checked } }) => {
-  console.log(checked);
   if (checked) {
     html.classList.add("dark");
     localStorage.setItem("theme", "dark");
